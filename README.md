@@ -11,3 +11,13 @@ just run as non root user :
 chmod +x install.sh
 ./install.sh
 ```
+
+## Themes
+
+### oseda
+
+![screen oseda](screens/oseda-theme.png)
+
+### af-magic-custom
+
+![screen af-magic-custom](screens/af-magic-custom-theme.png)

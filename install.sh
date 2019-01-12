@@ -1,4 +1,5 @@
 #!/bin/bash
+DEFAULT_THEME="oseda"
 
 # Don't run as root
 if [[ $EUID -ne 0 ]]; then
@@ -12,9 +13,13 @@ if [[ $EUID -ne 0 ]]; then
 		else 
 			# Install the theme in ~/.oh-my-zsh-custom
 			mkdir -p ~/.oh-my-zsh-custom/themes
-			cp -rf *.zsh-theme ~/.oh-my-zsh-custom/themes
+			echo "install themes in ~/.oh-my-zsh-custom/themes.."
+			cp -rf themes/*.zsh-theme ~/.oh-my-zsh-custom/themes
 			sed -i '/ZSH_CUSTOM_HOME=/c\ZSH_CUSTOM=$HOME/.oh-my-zsh-custom' ~/.zshrc
-			sed -i '/ZSH_THEME=/c\ZSH_THEME="oseda"' ~/.zshrc	
+			echo "set theme $DEFAULT_THEME in ~/.zshrc.."
+			sed -i '/ZSH_THEME=/c\ZSH_THEME="'$DEFAULT_THEME'"' ~/.zshrc
+			echo "actualize zsh.."
+			source ~/.zshrc	
 		fi
 	else
 		echo "you need to install zsh: apt get install zsh"
